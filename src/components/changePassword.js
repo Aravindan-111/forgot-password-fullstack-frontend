@@ -1,9 +1,8 @@
 import axios from "axios";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
-import * as YUP from "yup";
 
 // // schema
 // const schema = YUP.object().shape({
@@ -41,7 +40,7 @@ export default function Changepassword() {
 
   const checkLink = async () => {
     try {
-      const link = await axios.get(
+      await axios.get(
         `https://forgot-password-fullstack.herokuapp.com/users/login/forgot-password/${userid}/${token}`
       );
       setDummy(false);
