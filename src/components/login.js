@@ -18,6 +18,7 @@ const schema = YUP.object().shape({
 export default function Login() {
   const history = useHistory();
   const [log, setLog] = useContext(context);
+  console.log(log);
   const [dummy, setDummy] = useState(false);
 
   const loginAccount = async (values) => {
