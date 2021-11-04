@@ -11,7 +11,7 @@ const schema = YUP.object().shape({
   name: YUP.string().required("Please enter Name"),
   email: YUP.string().email().required("Please Enter your Email"),
   password: YUP.string()
-    .min(6, "Password should be greater than 5 characters")
+    .min(5, "Password should be greater than 4 characters")
     .required("Enter Password"),
 });
 
@@ -20,7 +20,7 @@ export default function Register() {
   const createAccount = async (values) => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/users/register",
+        "https://forgot-password-fullstack.herokuapp.com/users/register",
         {
           name: values.name,
           email: values.email,

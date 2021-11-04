@@ -42,7 +42,7 @@ export default function Changepassword() {
   const checkLink = async () => {
     try {
       const link = await axios.get(
-        `http://localhost:3001/users/login/forgot-password/${userid}/${token}`
+        `https://forgot-password-fullstack.herokuapp.com/users/login/forgot-password/${userid}/${token}`
       );
       setDummy(false);
       setMain(true);
@@ -60,7 +60,7 @@ export default function Changepassword() {
   const resetPassword = async () => {
     try {
       const link = await axios.post(
-        `http://localhost:3001/users/login/forgot-password/${userid}/${token}`,
+        `https://forgot-password-fullstack.herokuapp.com/users/login/forgot-password/${userid}/${token}`,
         {
           password: password,
           confirm_password: confirm_password,
