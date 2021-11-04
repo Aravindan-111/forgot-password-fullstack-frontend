@@ -22,7 +22,7 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/protected" component={Protected} />
             <Route
-              path="/users/login/forgot-password/:userid/:token"
+              path="/forgot-password/:userid/:token"
               component={Changepassword}
             />
             <Route path="/forgotpassword" component={Forgotpassword} />
