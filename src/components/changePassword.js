@@ -43,9 +43,11 @@ export default function Changepassword() {
       await axios.get(
         `https://forgot-password-fullstack.herokuapp.com/users/forgot-password/${userid}/${token}`
       );
+      console.log("hi");
       setDummy(false);
       setMain(true);
     } catch (err) {
+      console.log("hrllo");
       console.log(err);
       setDummy(true);
       setMain(true);
