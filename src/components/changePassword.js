@@ -12,6 +12,7 @@ import { useHistory, useParams } from "react-router";
 export default function Changepassword() {
   const history = useHistory();
   const { userid, token } = useParams();
+  console.log(userid);
 
   //   states
   const [password, setPassword] = useState("");
