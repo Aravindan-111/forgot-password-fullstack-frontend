@@ -86,7 +86,7 @@ export default function Login() {
                     <label>Password</label>
                     <Field
                       className="form-control"
-                      type="text"
+                      type="password"
                       name="password"
                       component="input"
                     />
