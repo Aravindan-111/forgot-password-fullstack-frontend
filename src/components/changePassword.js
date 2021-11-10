@@ -7,9 +7,7 @@ import * as YUP from "yup";
 
 // schema
 const schema = YUP.object().shape({
-  password: YUP.string()
-    .min(4, "password should be more than 4 characters")
-    .required("please enter your password"),
+  password: YUP.string().min(5, "password should be more than 4 characters"),
 });
 
 export default function Changepassword() {
@@ -114,8 +112,8 @@ export default function Changepassword() {
                               className="form-control"
                               type="password"
                               name="password"
-                              value={password}
                               component="input"
+                              value={password}
                               onChange={handleChange}
                             />
                             <div>
