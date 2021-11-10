@@ -3,11 +3,14 @@ import { Field, Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
+import * as YUP from "yup";
 
-// // schema
-// const schema = YUP.object().shape({
-//   password: YUP.string().required("please enter your password"),
-// });
+// schema
+const schema = YUP.object().shape({
+  password: YUP.string()
+    .min(4, "password should be more than 4 characters")
+    .required("please enter your password"),
+});
 
 export default function Changepassword() {
   const history = useHistory();
@@ -44,12 +47,9 @@ export default function Changepassword() {
       await axios.get(
         `https://forgot-password-fullstack.herokuapp.com/users/forgot-password/${userid}/${token}`
       );
-      console.log("hi");
       setDummy(false);
       setMain(true);
     } catch (err) {
-      console.log("hrllo");
-      console.log(err);
       setDummy(true);
       setMain(true);
     }
@@ -94,7 +94,7 @@ export default function Changepassword() {
                     password: "",
                     confirm_password: "",
                   }}
-                  // validationSchema={schema}
+                  validationSchema={schema}
                   onSubmit={async (values, { resetForm }) => {
                     const reset = await resetPassword();
                     if (reset) {
@@ -118,9 +118,9 @@ export default function Changepassword() {
                               component="input"
                               onChange={handleChange}
                             />
-                            {/* <div>
-                        <ErrorMessage name="password" />
-                      </div> */}
+                            <div>
+                              <ErrorMessage name="password" />
+                            </div>
                           </div>
                           {/* confirm password */}
                           <div className="mt-3">
